@@ -1,0 +1,28 @@
+<div class="container">
+<form>
+<select id="countries" class="form-select btn-info filter" aria-label="Default select example" (change)='onCountrySelected($event)'>
+  <option selected value="default">Select Country</option>
+  <option *ngFor="let country of countries" value="{{country.code}}">{{country.name}}</option>
+</select>
+<input class="btn-info filter" type="number" id="state" name="state"  (change)='onStateSelected($event)'>
+<input class="filter filter-remaining" type="text" id="remaingNumber" name="remaingNumber">
+<button type="button" class="btn btn-secondary filter-button" (click)='onFindByNumber($event)'>Filter</button>
+</form>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers;  index as index;">
+      <th scope="row">{{index+1}}</th>
+      <td>{{customer.name}}</td>
+      <td>{{customer.phone}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
